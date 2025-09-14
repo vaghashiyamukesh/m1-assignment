@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Adoption Form - Happy Paws</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="main-header">
+                <div class="logo">
+                    <img src="images/logo.png" alt="Happy Paws logo" width="125">
+                </div>
+                <nav class="main-menu">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="page2.html">Available Pets</a></li>
+                        <li><a href="page3.html">Adoption Form</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <h1>Adoption Application Form</h1>
+            <div class="main-content">
+                <p>Please fill out this form to begin the adoption process. We'll contact you within 24 hours.</p>
+                
+                <form action="#" method="post">
+                    <fieldset>
+                        <legend>Personal Information</legend>
+                        
+                        <label for="name">Full Name:</label>
+                        <input type="text" id="name" name="name" required>
+                        <br>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                        <br>
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" required>
+                        <br>
+                        <label for="address">Address:</label>
+                        <textarea id="address" name="address" rows="3" required></textarea>
+                        
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Pet Preferences</legend>
+                        
+                        <label>Type of Pet:</label>
+                        <input type="radio" id="dog" name="pet_type" value="dog">
+                        <label for="dog">Dog</label>
+                        <input type="radio" id="cat" name="pet_type" value="cat">
+                        <label for="cat">Cat</label>
+                        <br>
+                        <label for="pet_name">Preferred Pet Name (if known):</label>
+                        <input type="text" id="pet_name" name="pet_name">
+                        <br>
+                        <label for="experience">Previous Pet Experience:</label>
+                        <select id="experience" name="experience">
+                            <option value="">Select one...</option>
+                            <option value="first">First-time owner</option>
+                            <option value="some">Some experience</option>
+                            <option value="experienced">Experienced owner</option>
+                        </select>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Additional Information</legend>
+                        
+                        <label for="message">Why do you want to adopt this pet?</label>
+                        <textarea id="message" name="message" rows="4"></textarea>
+                        <br>
+                        <label>
+                            <input type="checkbox" name="terms" required>
+                            I agree to the adoption terms and conditions
+                        </label>
+                    </fieldset>
+
+                    <button type="submit">Submit Application</button>
+                    <button type="reset">Clear Form</button>
+                </form>
+            </div>
+        </main>
+        <footer>
+            <div class="footer-content">
+                <p>&copy; 2025 Happy Paws Pet Adoption Service</p>
+                <p>Follow us on social media</p>
+                <div class="social-links">
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+/* Basic CSS styles for Happy Paws Pet Adoption website */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Header styles */
+.main-header {
+    padding: 20px 0;
+    background-color: #f8f8f8;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.main-menu ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.main-menu li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.main-menu a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* Main content styles */
+main {
+    padding: 20px 0;
+}
+
+h1, h2 {
+    color: #2c3e50;
+}
+
+.main-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f5f5f5;
+}
+
+/* Footer styles */
+footer {
+    background-color: #f8f8f8;
+    padding: 20px 0;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.social-links a {
+    margin: 0 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+/* Image styles */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Adoption Form - Happy Paws</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="main-header">
+                <div class="logo">
+                    <img src="images/logo.png" alt="Happy Paws logo" width="125">
+                </div>
+                <nav class="main-menu">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="page2.html">Available Pets</a></li>
+                        <li><a href="page3.html">Adoption Form</a></li>
+                        <li><a href="page4.html">Gallery</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <h1>Gallery</h1>
+            <div class="main-content">
+                <p>Explore our gallery of happy pets that have found their forever homes through Happy Paws!</p>
+                
+                <ul class="gallery" id="gallery"></ul>
+                    <!-- <li><img src="images/gallery-1.jpg" alt="Happy adopted dog"  class="photo"></li>
+                    <li><img src="images/gallery-2.jpg" alt="Happy adopted cat" class="photo"></li>
+                    <li><img src="images/gallery-3.jpg" alt="Family with adopted pet"  class="photo"></li>
+                    <li><img src="images/gallery-4.jpg" alt="Playful puppy"  class="photo"></li>
+                    <li><img src="images/gallery-5.jpg" alt="Curious kitten"  class="photo"></li>
+                    <li><img src="images/gallery-6.jpg" alt="Adopted pets together" class="photo"></li>
+                    <li><img src="images/gallery-7.jpg" alt="Pet with new owner"  class="photo"></li>
+                    <li><img src="images/gallery-8.jpg" alt="Happy pet family"  class="photo"></li>
+                    <li><img src="images/gallery-9.jpg" alt="Adopted dog playing" class="photo"></li>
+                    <li><img src="images/gallery-10.jpg" alt="Adopted cat resting" class="photo"></li> -->
+                </ul>
+            </div>
+        </main>
+        <footer>
+            <div class="footer-content">
+                <p>&copy; 2025 Happy Paws Pet Adoption Service</p>
+                <p>Follow us on social media</p>
+                <div class="social-links">
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+		function updateGallaryImage(){
+			var fileNames = [];
+			var partners = [];
+			var imageList = [];
+			var openList = "<li class='photo'>";
+			var closeList = "</li>";
+			var image = "";
+
+			for(var i=0; i<10; i++){
+				fileNames.push("gallery-" + (i+1));
+				partners.push("<img src='images/"+fileNames[i]+ ".jpg' >");
+				image = openList + partners[i] + closeList;
+				imageList.push(image);
+			}
+			document.getElementById("gallery").innerHTML = imageList;	
+		}
+		updateGallaryImage();
+	</script>
+</body>
+</html>

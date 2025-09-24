@@ -193,3 +193,8 @@ button {
 button:hover {
     background: #005fa3;
 }
+
+main #gallery #photo img{
+    width: 300px;
+    height: 300px;
+}

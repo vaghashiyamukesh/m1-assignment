@@ -26,19 +26,9 @@
             <h1>Gallery</h1>
             <div class="main-content">
                 <p>Explore our gallery of happy pets that have found their forever homes through Happy Paws!</p>
-                
-                <ul class="gallery" id="gallery"></ul>
-                    <!-- <li><img src="images/gallery-1.jpg" alt="Happy adopted dog"  class="photo"></li>
-                    <li><img src="images/gallery-2.jpg" alt="Happy adopted cat" class="photo"></li>
-                    <li><img src="images/gallery-3.jpg" alt="Family with adopted pet"  class="photo"></li>
-                    <li><img src="images/gallery-4.jpg" alt="Playful puppy"  class="photo"></li>
-                    <li><img src="images/gallery-5.jpg" alt="Curious kitten"  class="photo"></li>
-                    <li><img src="images/gallery-6.jpg" alt="Adopted pets together" class="photo"></li>
-                    <li><img src="images/gallery-7.jpg" alt="Pet with new owner"  class="photo"></li>
-                    <li><img src="images/gallery-8.jpg" alt="Happy pet family"  class="photo"></li>
-                    <li><img src="images/gallery-9.jpg" alt="Adopted dog playing" class="photo"></li>
-                    <li><img src="images/gallery-10.jpg" alt="Adopted cat resting" class="photo"></li> -->
-                </ul>
+                <section>
+                    <ul id="galleryPhotos" style="display: flex; flex-wrap: wrap; gap: 2em; justify-content: center; list-style: none; padding: 0;"></ul>
+                </section>
             </div>
         </main>
         <footer>
@@ -55,22 +45,33 @@
     </div>
     <script>
 		function updateGallaryImage(){
-			var fileNames = [];
-			var partners = [];
-			var imageList = [];
-			var openList = "<li class='photo'>";
-			var closeList = "</li>";
-			var image = "";
-
-			for(var i=0; i<10; i++){
-				fileNames.push("gallery-" + (i+1));
-				partners.push("<img src='images/"+fileNames[i]+ ".jpg' >");
-				image = openList + partners[i] + closeList;
-				imageList.push(image);
-			}
-			document.getElementById("gallery").innerHTML = imageList;	
-		}
-		updateGallaryImage();
+            var fileNames = [];
+            var captions = [
+                "Happy adopted dog", "Happy adopted pet", "Family with adopted pet", "Playful puppy", "Curious bunney", "Adopted pets", "Adopted pets", "Happy pet", "Adopted pet together", "Adopted cat resting"
+            ];
+            var descriptions = [
+                "This dog found a loving home and enjoys daily walks.",
+                "This cat loves cuddles and has a new family.",
+                "A family celebrating their new furry friend.",
+                "A playful puppy enjoying its new life.",
+                "A curious kitten exploring its surroundings.",
+                "Two adopted pets bonding together.",
+                "A pet with its happy new owner.",
+                "A joyful pet family together.",
+                "A dog playing in its new backyard.",
+                "A cat resting peacefully in its new home."
+            ];
+            var imageList = [];
+            for(var i=0; i<10; i++){
+                fileNames.push("gallery-" + (i+1));
+                var imgHtml = "<img src='images/"+fileNames[i]+ ".jpg' alt='"+captions[i]+"' class='photo gallery-img' title='"+descriptions[i]+"'>";
+                var captionHtml = "<figcaption class='gallery-caption'>" + captions[i] + "</figcaption>";
+                var figure = "<li class='gallery-photo-item'><figure class='gallery-figure'>" + imgHtml + captionHtml + "</figure></li>";
+                imageList.push(figure);
+            }
+            document.getElementById("galleryPhotos").innerHTML = imageList.join("");
+        }
+        updateGallaryImage();
 	</script>
 </body>
 </html>

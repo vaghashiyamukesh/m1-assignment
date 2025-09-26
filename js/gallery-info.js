@@ -1,6 +1,5 @@
 // Info Box variables and arrays
-var infoBoxOpenTag = '<div id="infoBox" style="position: fixed; top: 20%; left: 50%; transform: translate(-50%, 0); min-width: 300px; max-width: 400px; background: #fff; border: 2px solid #888; box-shadow: 0 4px 16px rgba(0,0,0,0.2); z-index: 1000; padding: 2em; visibility: visible;">';
-var infoBoxCloseTag = '</div>';
+// Removed dynamic info box creation. Use static HTML info box only.
 var closeText = 'Close';
 var infoTexts = [
     "This dog found a loving home and enjoys daily walks.",
@@ -32,16 +31,17 @@ function hideInfoBox() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Add click listeners to gallery images
-    var galleryItems = document.querySelectorAll('.gallery-img');
-    galleryItems.forEach(function(img, idx) {
-        img.addEventListener('click', function() {
+    // Add click listeners to gallery descriptions
+    var descItems = document.querySelectorAll('.gallery-desc');
+    descItems.forEach(function(desc) {
+        desc.addEventListener('click', function() {
+            var idx = parseInt(desc.getAttribute('data-index'));
             showInfoBox(idx);
         });
     });
     // Close link event
     document.getElementById('closeInfoBox').addEventListener('click', function(e) {
-        e.preventDefault();
-        hideInfoBox();
+    e.preventDefault();
+    hideInfoBox();
     });
 });

@@ -27,12 +27,12 @@
             <div class="main-content">
                 <p>Explore our gallery of happy pets that have found their forever homes through Happy Paws!</p>
                 <section>
-                    <ul id="galleryPhotos" style="display: flex; flex-wrap: wrap; gap: 2em; justify-content: center; list-style: none; padding: 0;"></ul>
+                    <ul id="galleryPhotos" class="gallery-photos"></ul>
                     <!-- Info Box -->
-                    <div id="infoBox" style="position: fixed; top: 20%; left: 50%; transform: translate(-50%, 0); min-width: 300px; max-width: 400px; background: #fff; border: 2px solid #888; box-shadow: 0 4px 16px rgba(0,0,0,0.2); z-index: 1000; padding: 2em; visibility: hidden;">
-                        <div id="infoHeading" style="font-weight: bold; font-size: 1.3em; margin-bottom: 0.5em;"></div>
-                        <div id="infoText" style="margin-bottom: 1em;"></div>
-                        <a href="#" id="closeInfoBox" style="color: #0077cc; text-decoration: underline; cursor: pointer;">Close</a>
+                    <div id="infoBox" class="info-box">
+                        <div id="infoHeading" class="info-heading"></div>
+                        <div id="infoText" class="info-text"></div>
+                        <a href="#" id="closeInfoBox" class="close-info-box">Close</a>
                     </div>
                 </section>
             </div>
@@ -50,7 +50,7 @@
         </footer>
     </div>
     <script>
-		function updateGallaryImage(){
+        function updateGallaryImage(){
             var fileNames = [];
             var captions = [
                 "Happy adopted dog", "Happy adopted pet", "Family with adopted pet", "Playful puppy", "Curious bunney", "Adopted pets", "Adopted pets", "Happy pet", "Adopted pet together", "Adopted cat resting"
@@ -72,13 +72,14 @@
                 fileNames.push("gallery-" + (i+1));
                 var imgHtml = "<img src='images/"+fileNames[i]+ ".jpg' alt='"+captions[i]+"' class='photo gallery-img' title='"+descriptions[i]+"'>";
                 var captionHtml = "<figcaption class='gallery-caption'>" + captions[i] + "</figcaption>";
-                var figure = "<li class='gallery-photo-item'><figure class='gallery-figure'>" + imgHtml + captionHtml + "</figure></li>";
+                var descHtml = "<div class='gallery-desc' data-index='"+i+"'>" + descriptions[i] + "</div>";
+                var figure = "<li class='gallery-photo-item'><figure class='gallery-figure'>" + imgHtml + captionHtml + descHtml + "</figure></li>";
                 imageList.push(figure);
             }
             document.getElementById("galleryPhotos").innerHTML = imageList.join("");
         }
         updateGallaryImage();
     </script>
-    <script src="gallery-info.js"></script>
+    <script src="js/gallery-info.js"></script>
 </body>
 </html>

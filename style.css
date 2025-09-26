@@ -1,3 +1,39 @@
+/* Info Box Styles */
+.info-box {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    min-width: 300px;
+    max-width: 400px;
+    background: #fff;
+    border: 2px solid #888;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    z-index: 1000;
+    padding: 2em;
+    visibility: hidden;
+}
+.info-heading {
+    font-weight: bold;
+    font-size: 1.3em;
+    margin-bottom: 0.5em;
+}
+.info-text {
+    margin-bottom: 1em;
+}
+.close-info-box {
+    color: #0077cc;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.gallery-photos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
 /* Basic CSS styles for Happy Paws Pet Adoption website */
 
 body {
@@ -197,14 +233,23 @@ button:hover {
 .gallery-img{
     width: 400px;
 }
+
 .gallery-desc {
     display: none;
     font-size: 0.95em;
     color: #555;
     margin-bottom: 0.7em;
+    background: #f0f0f0;
+    border-radius: 4px;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    transition: background 0.2s;
 }
-.gallery-img:hover + .gallery-caption + .gallery-desc {
+.gallery-photo-item:hover .gallery-desc {
     display: block;
+}
+.gallery-desc:hover {
+    background: #e0e0e0;
 }
 
 /* Gallery layout for two images side by side */

@@ -267,3 +267,10 @@ button:hover {
     text-align: center;
     margin-bottom: 2em;
 }
+
+.contact-input-hidden {
+  display: none;
+}
+.contact-input-visible {
+  display: block;
+}

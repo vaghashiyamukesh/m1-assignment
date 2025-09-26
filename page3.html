@@ -30,19 +30,27 @@
                 <form action="#" method="post">
                     <fieldset>
                         <legend>Personal Information</legend>
-                        
                         <label for="name">Full Name:</label>
                         <input type="text" id="name" name="name" required>
                         <br>
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
+                        <label for="contactMethod">Preferred Contact Method:</label>
+                        <select id="contactMethod" name="contactMethod">
+                            <option id="optionInstruction" value="">-- Select contact method --</option>
+                            <option id="optionEmail" value="email">Email</option>
+                            <option id="optionPhone" value="phone">Phone</option>
+                        </select>
                         <br>
-                        <label for="phone">Phone Number:</label>
-                        <input type="tel" id="phone" name="phone" required>
+                        <div id="emailInput" class="contact-input-hidden">
+                            <label for="email">Enter your Email:</label>
+                            <input type="email" id="email" name="email">
+                        </div>
+                        <div id="phoneInput" class="contact-input-hidden">
+                            <label for="phone">Enter your Phone Number:</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
                         <br>
                         <label for="address">Address:</label>
                         <textarea id="address" name="address" rows="3" required></textarea>
-                        
                     </fieldset>
 
                     <fieldset>
@@ -95,5 +103,6 @@
             </div>
         </footer>
     </div>
-</body>
-</html>
+    <script src="js/contact-method.js"></script>
+    </body>
+    </html>

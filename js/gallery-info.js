@@ -1,7 +1,5 @@
-// Info Box variables and arrays
-// Removed dynamic info box creation. Use static HTML info box only.
-var closeText = 'Close';
-var infoTexts = [
+// Gallery info box functionality
+const infoTexts = [
     "This dog found a loving home and enjoys daily walks.",
     "This cat loves cuddles and has a new family.",
     "A family celebrating their new furry friend.",
@@ -13,35 +11,53 @@ var infoTexts = [
     "A dog playing in its new backyard.",
     "A cat resting peacefully in its new home."
 ];
-var captions = [
-    "Happy adopted dog", "Happy adopted pet", "Family with adopted pet", "Playful puppy", "Curious bunney", "Adopted pets", "Adopted pets", "Happy pet", "Adopted pet together", "Adopted cat resting"
+
+const captions = [
+    "Happy adopted dog", "Happy adopted pet", "Family with adopted pet", 
+    "Playful puppy", "Curious bunney", "Adopted pets", "Adopted pets", 
+    "Happy pet", "Adopted pet together", "Adopted cat resting"
 ];
 
-// Show info box function
-function showInfoBox(index) {
-    var infoBox = document.getElementById('infoBox');
-    document.getElementById('infoHeading').innerHTML = captions[index];
-    document.getElementById('infoText').innerHTML = infoTexts[index];
-    infoBox.style.visibility = 'visible';
-}
-
-// Hide info box function
-function hideInfoBox() {
-    document.getElementById('infoBox').style.visibility = 'hidden';
-}
-
 document.addEventListener('DOMContentLoaded', function() {
+    const infoBox = document.getElementById('infoBox');
+    const infoHeading = document.getElementById('infoHeading');
+    const infoText = document.getElementById('infoText');
+    const closeInfoBox = document.getElementById('closeInfoBox');
+
+    // Show info box
+    function showInfoBox(index) {
+        infoHeading.textContent = captions[index];
+        infoText.textContent = infoTexts[index];
+        infoBox.classList.add('visible');
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Hide info box
+    function hideInfoBox() {
+        infoBox.classList.remove('visible');
+        document.body.style.overflow = '';
+    }
+
     // Add click listeners to gallery descriptions
-    var descItems = document.querySelectorAll('.gallery-desc');
-    descItems.forEach(function(desc) {
-        desc.addEventListener('click', function() {
-            var idx = parseInt(desc.getAttribute('data-index'));
+    document.querySelectorAll('.gallery-desc').forEach(function(desc) {
+        desc.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const idx = parseInt(desc.getAttribute('data-index'));
             showInfoBox(idx);
         });
     });
-    // Close link event
-    document.getElementById('closeInfoBox').addEventListener('click', function(e) {
-    e.preventDefault();
-    hideInfoBox();
+
+    // Close info box events
+    closeInfoBox.addEventListener('click', function(e) {
+        e.preventDefault();
+        hideInfoBox();
+    });
+
+    // Close on ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && infoBox.classList.contains('visible')) {
+            hideInfoBox();
+        }
     });
 });

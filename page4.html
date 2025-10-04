@@ -4,6 +4,7 @@
     <title>Adoption Form - Happy Paws</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -28,11 +29,22 @@
                 <p>Explore our gallery of happy pets that have found their forever homes through Happy Paws!</p>
                 <section>
                     <ul id="galleryPhotos" class="gallery-photos"></ul>
+                    
                     <!-- Info Box -->
                     <div id="infoBox" class="info-box">
                         <div id="infoHeading" class="info-heading"></div>
                         <div id="infoText" class="info-text"></div>
                         <a href="#" id="closeInfoBox" class="close-info-box">Close</a>
+                    </div>
+
+                    <!-- Lightbox -->
+                    <div class="lightbox">
+                        <div class="lightbox-content">
+                            <span class="close-lightbox">&times;</span>
+                            <img id="lightbox-img" class="lightbox-img" src="" alt="">
+                            <div class="lightbox-caption">
+                            </div>
+                        </div>
                     </div>
                 </section>
             </div>
@@ -50,12 +62,14 @@
         </footer>
     </div>
     <script>
-        function updateGallaryImage(){
-            var fileNames = [];
-            var captions = [
-                "Happy adopted dog", "Happy adopted pet", "Family with adopted pet", "Playful puppy", "Curious bunney", "Adopted pets", "Adopted pets", "Happy pet", "Adopted pet together", "Adopted cat resting"
+        function generateGallery() {
+            const fileNames = [];
+            const captions = [
+                "Happy adopted dog", "Happy adopted pet", "Family with adopted pet", 
+                "Playful puppy", "Curious bunney", "Adopted pets", "Adopted pets", 
+                "Happy pet", "Adopted pet together", "Adopted cat resting"
             ];
-            var descriptions = [
+            const descriptions = [
                 "This dog found a loving home and enjoys daily walks.",
                 "This cat loves cuddles and has a new family.",
                 "A family celebrating their new furry friend.",
@@ -67,19 +81,37 @@
                 "A dog playing in its new backyard.",
                 "A cat resting peacefully in its new home."
             ];
-            var imageList = [];
-            for(var i=0; i<10; i++){
-                fileNames.push("gallery-" + (i+1));
-                var imgHtml = "<img src='images/"+fileNames[i]+ ".jpg' alt='"+captions[i]+"' class='photo gallery-img' title='"+descriptions[i]+"'>";
-                var captionHtml = "<figcaption class='gallery-caption'>" + captions[i] + "</figcaption>";
-                var descHtml = "<div class='gallery-desc' data-index='"+i+"'>" + descriptions[i] + "</div>";
-                var figure = "<li class='gallery-photo-item'><figure class='gallery-figure'>" + imgHtml + captionHtml + descHtml + "</figure></li>";
+
+            const imageList = [];
+            for(let i = 0; i < 10; i++) {
+                const fileName = "gallery-" + (i + 1);
+                fileNames.push(fileName);
+                
+                const figure = `
+                    <li class="gallery-photo-item">
+                        <figure class="gallery-figure">
+                            <img src="images/${fileName}.jpg" 
+                                alt="${captions[i]}"
+                                class="photo gallery-img">
+                            <div class="gallery-desc" data-index="${i}">
+                                ${descriptions[i]}
+                            </div>
+                            <figcaption class="gallery-caption">
+                                ${captions[i]}
+                            </figcaption>
+                        </figure>
+                    </li>
+                `;
                 imageList.push(figure);
             }
+            
             document.getElementById("galleryPhotos").innerHTML = imageList.join("");
         }
-        updateGallaryImage();
+
+        // Initialize gallery when page loads
+        document.addEventListener('DOMContentLoaded', generateGallery);
     </script>
     <script src="js/gallery-info.js"></script>
+    <script src="js/gallery-lightbox.js"></script>
 </body>
 </html>
